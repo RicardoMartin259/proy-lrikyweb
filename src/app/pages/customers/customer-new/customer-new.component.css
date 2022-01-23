@@ -1,0 +1,14 @@
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonSubmit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.border{
+    margin: 2px;
+}

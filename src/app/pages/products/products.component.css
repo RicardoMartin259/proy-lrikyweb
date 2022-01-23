@@ -1,0 +1,11 @@
+img{
+    width: 6rem;
+    height:6rem;
+}
+li{
+    list-style: none;
+}
+ul{
+    padding: 0;
+    list-style-type: none;
+}

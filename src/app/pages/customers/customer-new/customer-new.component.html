@@ -1,0 +1,95 @@
+<div class="container">
+  <form *ngIf="tipoPersona=='6'" [formGroup]="customerform" (ngSubmit)="onSaveCustomer(customer)">
+    <div >
+      <h1>DATOS DEL CLIENTE</h1>
+    </div>
+    <div class="col">
+      <div class="row">
+        <mat-form-field class="col-4" appearance="standard">
+          <mat-label>Tipo de Documento</mat-label>
+          <mat-select formControlName="tipoDoc">
+            <mat-option value="1">DNI</mat-option>
+            <mat-option value="6">RUC</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col" appearance="standard">
+          <mat-label>Número de documento</mat-label>
+          <input matInput formControlName="numDoc" (blur)="onSerachRucDni(customerform.value.tipoDoc, customerform.value.numDoc)">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <mat-label>Razón Social</mat-label>
+          <textarea matInput formControlName="rznSocial"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <mat-label>Dirección</mat-label>
+          <textarea matInput formControlName="direccion"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <mat-form-field class="col" appearance="standard">
+        <mat-label>Contacto</mat-label>
+        <input matInput formControlName="contact">
+      </mat-form-field>
+      <mat-form-field class="col-5" appearance="standard">
+        <mat-label>Número de contacto</mat-label>
+        <input matInput formControlName="contactPhone">
+      </mat-form-field>
+    </div>
+    <div class="buttonSubmit">
+      <button type="submit" class="border" mat-raised-button color="primary" [disabled]="customerform.invalid">Guardar</button>
+      <a class="border" mat-raised-button color="warn" (click)="closeForm()">Cancelar</a>
+    </div>
+  </form>
+
+  <form *ngIf="tipoPersona=='1'" [formGroup]="customerDNIForm" (ngSubmit)="onSaveCustomer(customerDNI)">
+    <div >
+      <h1>DATOS DEL CLIENTE</h1>
+    </div>
+    <div class="col">
+      <div class="row">
+        <mat-form-field class="col-4" appearance="standard">
+          <mat-label>Tipo de Documento</mat-label>
+          <mat-select formControlName="tipoDoc">
+            <mat-option value="6">RUC</mat-option>
+            <mat-option value="1">DNI</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col" appearance="standard">
+          <mat-label>Número de documento</mat-label>
+          <input matInput formControlName="numDoc" (blur)="onSerachRucDni(customerDNIForm.value.tipoDoc, customerDNIForm.value.numDoc)">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <mat-label>Nombres</mat-label>
+          <input matInput formControlName="nombres">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col" appearance="standard">
+          <mat-label>Apellido Paterno</mat-label>
+          <input matInput formControlName="apellidoP">
+        </mat-form-field>
+        <mat-form-field class="col" appearance="standard">
+          <mat-label>Apellido Materno</mat-label>
+          <input matInput formControlName="apellidoM">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <mat-form-field class="col-5" appearance="standard">
+        <mat-label>Número de Telefono</mat-label>
+        <input matInput formControlName="telefono">
+      </mat-form-field>
+    </div>
+    <div class="buttonSubmit">
+      <button type="submit" class="border" mat-raised-button color="primary" [disabled]="customerDNIForm.invalid">Guardar</button>
+      <a class="border" mat-raised-button color="warn" (click)="closeForm()">Cancelar</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lrikyweb": {
+      "hosting": {
+        "lrikyweb": [
+          "vysriky"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lrikyweb"
+  }
+}

@@ -1,0 +1,27 @@
+<div class="container mt-3">
+    <div *ngIf="tipoDoc=='RUC'">
+        <div>
+            <h1 class="">{{customer.rznSocial}}</h1>
+            <h3 class="text-secondary ">{{tipoDoc}}: {{customer.numDoc}}</h3>
+            <h3 class="text-secondary ">DIRECCIÓN: {{customer.address.direccion}}</h3>
+            <h3 class="text-secondary ">({{customer.address.distrito}} - {{customer.address.provincia}} - {{customer.address.departamento}})</h3>
+            <h3 class="text-secondary ">DATOS DE CONTACTO</h3>
+            <div>
+                <p>{{customer.contacto}} - Teléfono: {{customer.telefono}}</p>
+            </div>
+            <div class="text-end">
+              <button class="border" mat-raised-button color="primary" (click)="closeForm()">CERRAR</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="tipoDoc=='DNI'">
+        <div>
+            <h1 class="">{{customer.nombres}} {{customer.apellidoMaterno}} {{customer.apellidoMaterno}}</h1>
+            <h3 class="text-secondary ">{{tipoDoc}}: {{customer.numDoc}}</h3>
+            <h3 class="text-secondary ">Teléfono: {{customer.telefono}}</h3>
+            <div class="text-end">
+              <button class="border" mat-raised-button color="primary" (click)="closeForm()">CERRAR</button>
+            </div>
+        </div>
+    </div>
+</div>

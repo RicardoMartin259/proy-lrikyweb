@@ -1,0 +1,71 @@
+
+<div class="container mt-3">
+    
+    <!--FILTERS-->
+    <div class="row">
+        <div class="col-2 border-end">
+            <!--<h5 class="">Filtros</h5>-->
+            <div>
+                <ul class="text-secondary">
+                    <app-filters></app-filters>
+                    <label class="fw-bold text-dark">Tipo de producto</label>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Aceites</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Grasas</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Refrigerante</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Filtros</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Liquido de frenos</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Otros</li>
+                    
+                    <li><hr class="dropdown-divider"></li>
+                    <label class="fw-bold text-dark">Unidad de medida</label>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Balde 20L</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Caja 12UU X 1L</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Balde 20L</li>
+
+                    <li><hr class="dropdown-divider"></li>
+                    <label class="fw-bold text-dark">Grado</label>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Balde 20L</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Caja 12UU X 1L</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Balde 20L</li>
+
+                    <li><hr class="dropdown-divider"></li>
+                    <label class="fw-bold text-dark">Combustible</label>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Balde 20L</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Caja 12UU X 1L</li>
+                    <li><input type="checkbox" id="cbox1" value="first_checkbox"> Balde 20L</li>
+
+                </ul>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-success">Aplicar</button>
+            </div>
+        </div>
+        <!--LIST OF PRODUCTS-->
+        <div class="col">
+            
+            <h4>Resultados</h4>
+            <app-results></app-results>
+            <div class="card card-body m-2" *ngFor="let product of products | prodfilter:filterprods">
+                <div class="row">
+                    <div class="col-2 text-start">
+                        <img src="https://plazavea.vteximg.com.br/arquivos/ids/561769-450-450/20192553.jpg?v=637427443367370000" alt="">
+                    </div>
+                    <div class="col-8 text-start" (click)="goDetails(product.id)">
+                        <span>{{product.desc}}</span>
+                    </div>
+                    <div class="col-2 text-end">
+                        <div class="fw-bold">
+                            <span class="link-success">S/ {{product.price}}</span>
+                        </div>
+                        <div class="">Stock: {{product.quant}}</div>
+                        <div>
+                            <button class="btn btn-outline-secondary btn-sm mt-2" (click)="addItem(product)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
